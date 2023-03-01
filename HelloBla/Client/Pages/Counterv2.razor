@@ -1,0 +1,44 @@
+﻿@page "/counterv2"
+@page "/counterv2/{Increment:int}"
+
+<PageTitle>Counter version 2</PageTitle>
+
+<h1>Counter v2</h1>
+
+<p role="status">Current count: <scan style="color:@NumberColor">@currentCount</scan></p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    [Parameter]
+    public int? Increment { get; set; }
+
+    private int increment = 1;
+
+    protected override void OnParametersSet()
+    {
+        if (Increment.HasValue)
+            increment = Increment.Value;
+    }
+
+
+    private int currentCount = 0;
+
+    private string NumberColor
+    {
+        get
+        {
+            if (currentCount % 2 == 0)
+                return "red";
+            else
+                return "black";
+        }
+    }
+
+    private void IncrementCount()
+    {
+        currentCount += increment;
+    }
+}
+
