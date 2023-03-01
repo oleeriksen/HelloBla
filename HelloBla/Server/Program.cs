@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.ResponseCompression;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace HelloBla;
 
@@ -12,6 +13,7 @@ public class Program
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
+        builder.Services.AddBlazoredLocalStorage();
 
         var app = builder.Build();
 
