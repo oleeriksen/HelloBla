@@ -31,10 +31,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        todos = new List<TodoItem>();
+
         var x = await localStore.GetItemAsync<List<TodoItem>>(todoKey);
-        if (x != null)
-            todos = x;
+        if (x == null)
+            todos = new List<TodoItem>(); ;
     }
 
     private void AddTodo()

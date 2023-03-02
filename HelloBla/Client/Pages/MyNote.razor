@@ -13,7 +13,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        noteContent = await localStore.GetItemAsync<string>(noteKey);
+        var x = await localStore.GetItemAsync<string>(noteKey);
+        if (x == null)
+            noteContent = "";
     }
 
 
@@ -29,7 +31,6 @@
     {
         noteContent = "";
         await localStore.RemoveItemAsync(noteKey);
-        await localStore.ClearAsync();
     }
 
 }
