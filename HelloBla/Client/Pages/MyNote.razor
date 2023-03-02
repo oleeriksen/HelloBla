@@ -1,15 +1,12 @@
 ﻿@page "/note"
 @inject Blazored.LocalStorage.ILocalStorageService localStore
 
-<h3>Mynote</h3>
-
-
-<h1>Your LocalStorage Note</h1>
+<h1>Note - saved i Local Storage</h1>
 
 <textarea @bind="noteContent" />
 <br />
-<button @onclick="UpdateLocalStorage">Save</button>
-<button @onclick="ClearLocalStorage">Clear</button>
+<button class="btn btn-primary" @onclick="UpdateLocalStorage">Save</button>
+<button class="btn" @onclick="ClearLocalStorage">Clear</button>
 
 @code {
 
@@ -32,7 +29,7 @@
     {
         noteContent = "";
         await localStore.RemoveItemAsync(noteKey);
-        //await localStore.ClearAsync();
+        await localStore.ClearAsync();
     }
 
 }

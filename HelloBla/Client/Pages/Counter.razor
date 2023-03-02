@@ -8,20 +8,4 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-@code {
-    private int currentCount = 0;
-
-        private string NumberColor {
-            get {
-               if (currentCount % 2 == 0)
-                return "red";
-               else
-                return "black";
-        } }
-
-        private void IncrementCount()
-        {
-            currentCount++;
-        }
-    }
 
