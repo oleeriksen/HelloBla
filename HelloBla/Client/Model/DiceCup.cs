@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Module7
+namespace HelloBla.Client.Model
 {
     public class DiceCup
     {
