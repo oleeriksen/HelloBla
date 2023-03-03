@@ -29,8 +29,14 @@
 
   <ItemGroup>
     <None Remove="Model\" />
+    <None Remove="CommonStuff\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="CommonStuff\" />
+    <Folder Include="wwwroot\DiceImg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\DiceImg\" />
   </ItemGroup>
 </Project>

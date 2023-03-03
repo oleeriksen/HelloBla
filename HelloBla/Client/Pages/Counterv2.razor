@@ -8,39 +8,48 @@
 <p role="status">Current count:
     <scan style="color:@NumberColor">@currentCount</scan></p>
 
+<img src="@NumberAsImage"/>
+
 <button class="btn btn-primary"
         @onclick="IncrementCount">Click me</button>
 
 @code {
 
-    [Parameter]
-    public int? Increment { get; set; }
+            [Parameter]
+            public int? Increment { get; set; }
 
     private int increment = 1;
 
-    protected override void OnParametersSet()
-    {
-        if (Increment.HasValue)
-            increment = Increment.Value;
-    }
-
-
-    private int currentCount = 0;
-
-    private string NumberColor
-    {
-        get
+        protected override void OnParametersSet()
         {
-            if (currentCount % 2 == 0)
-                return "red";
-            else
-                return "black";
+            if (Increment.HasValue)
+                increment = Increment.Value;
+        }
+
+        public string NumberAsImage {
+            get {
+            if (currentCount > 0 && currentCount < 7)
+                return "DiceImg/dice" + currentCount + ".png";
+            return "";
+            }
+        }
+
+        private int currentCount = 0;
+
+        private string NumberColor
+        {
+            get
+            {
+                if (currentCount % 2 == 0)
+                    return "red";
+                else
+                    return "black";
+            }
+        }
+
+        private void IncrementCount()
+        {
+            currentCount += increment;
         }
     }
-
-    private void IncrementCount()
-    {
-        currentCount += increment;
-    }
-}
 
