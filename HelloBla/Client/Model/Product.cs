@@ -14,6 +14,7 @@ namespace HelloBla.Client.Model
         [Required]
         public decimal Price { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         public bool IsPublished { get; set; }

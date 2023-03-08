@@ -9,7 +9,8 @@
 <ul>
     @foreach (var todo in todos) {
             <li>
-            <input type="checkbox" @bind="todo.IsDone" />
+            <InputCheckbox @bind-Value="todo.IsDone"
+                           @bind-Value:after="(e) => onToDoChanged(todo)" />
             <input @bind="todo.Title" />
         </li>
     }
@@ -47,6 +48,7 @@
 
     public async void UpdateLocalStorage()
     {
+        Console.WriteLine("UpdateLocalStorage");
         await localStore.SetItemAsync(todoKey, todos);
     }
 
@@ -56,5 +58,12 @@
         await localStore.RemoveItemAsync(todoKey);
         await localStore.ClearAsync();
     }
+
+    public void onToDoChanged(TodoItem todo) {
+        Console.WriteLine("onToDoChanged " + todo.Title);
+
+    }
+
+   
 }
 
