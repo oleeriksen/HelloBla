@@ -11,12 +11,12 @@
             <li>
             <InputCheckbox @bind-Value="todo.IsDone"
                            @bind-Value:after="(e) => onToDoChanged(todo)" />
-            <input @bind="todo.Title" />
+            <InputText @bind-Value="todo.Title" />
         </li>
     }
 </ul>
 
-<input placeholder="Something todo" @bind="newTodo" />
+<InputText placeholder="Something todo" @bind-Value="newTodo" />
 <button @onclick="AddTodo">Add todo</button>
 <button @onclick="UpdateLocalStorage">Save</button>
 <button @onclick="ClearLocalStorage">Clear</button>
