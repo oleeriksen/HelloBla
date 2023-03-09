@@ -12,6 +12,7 @@
             <InputCheckbox @bind-Value="todo.IsDone"
                            @bind-Value:after="(e) => onToDoChanged(todo)" />
             <InputText @bind-Value="todo.Title" />
+            <scan class="deleteIcon" @onclick="() => DeleteToDo(todo)">X</scan>
         </li>
     }
 </ul>
@@ -62,6 +63,10 @@
     public void onToDoChanged(TodoItem todo) {
         Console.WriteLine("onToDoChanged " + todo.Title);
 
+    }
+
+    private void DeleteToDo(TodoItem todo) {
+        todos.Remove(todo);
     }
 
    
